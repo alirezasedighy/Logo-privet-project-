@@ -1,0 +1,643 @@
+/*============== SCSS variabel =============*/
+$big-font: 35px;
+$med-font: 20px;
+$small-font: 15px;
+$normal-font: 19px;
+$color1: #c8d6ff;
+$color2: black;
+$color3: #80a2ff;
+$color4: #5481ff;
+/*============== SCSS variabel =============*/
+/*============== Impornt Font =============*/
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap");
+/*============== Impornt Font =============*/
+*{
+    background-color: $color1;
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    max-width: 1370px;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+.side_distance-right{
+    margin-right: 7rem;
+}
+.side_distance-left{
+    margin-left: 7rem;
+}
+/*=============== Nav start =================*/
+.nav_bar {
+    ul{
+        padding-top: 5px;
+        margin-right: 1rem;
+        li{
+            display: inline-block;
+	        margin-left: 40px;
+            padding: 0 10px;
+        }
+    }
+    nav{
+        transition: all 0.5s ease;
+        line-height: 80px;
+        a{
+            color: rgba(0, 0, 0, 0.7);
+            text-transform: capitalize;
+            padding:10px 0;
+            font-family: 'Fira Sans Condensed', sans-serif;
+            font-size: $med-font;
+            font-weight: 600;
+        }
+    }
+}
+.flex{
+    display: flex;	
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav__logo{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: $big-font;
+    margin-right: 40rem;
+    font-weight: 700;
+    color: #0f05a0;
+    animation: nav__logo_animation 4s infinite;
+}
+@keyframes nav__logo_animation{
+    0%,100%{
+        color: #0f05a0;
+    }
+    25%{
+       color:  #3b58ad ;
+    }
+    50%{
+        color:  #1b378a ;
+    }
+}
+
+.nav__logo, 
+.nav__toggler {
+    display: flex;	
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav_bar #nav-check{
+	position: absolute;
+	opacity:0;
+	pointer-events: none;
+}
+.nav-toggler{
+	height: 30px;
+	width: 41px;
+	background-color: #ffffff;
+	border-radius: 4px;
+	cursor: pointer;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	margin-right: 15px;
+    margin-top: -40px;
+}
+.nav-toggler span{
+	display: block;
+	height: 2px;
+	width: 20px;
+	background-color: $color2;
+	position: relative;
+}
+.nav-toggler span::before,
+.nav-toggler span::after{
+   content: '';
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: $color2;
+   left:0;
+   transition: 0.2s;
+}
+.nav-toggler span::before{
+	top: -6px;
+}
+.nav-toggler span::after{
+	top: 6px;
+}
+@media only screen and(max-width: 600px){
+    .logo{
+        width: 100vw;
+    }
+    .nav-toggler{
+    	display: flex;
+        margin-bottom: 20px;
+    }
+    header .nav{
+    	position: absolute;
+    	left:0;
+    	top:10%;
+    	width: 100%;
+    	opacity:0;
+    	visibility: hidden;
+    }
+    .nav__logo{
+        margin-top: 20px;
+        margin-left: 2rem;
+    }
+    header .nav ul li{
+    	display: block;
+        text-align: center;
+    }
+    header #nav-check:checked ~ .nav{
+       opacity: 1;
+       visibility: visible;       
+       border-bottom: 2px #596fb0 solid;
+       
+    }
+    header  #nav-check:focus ~ .nav-toggler{
+		transition: all 1s ease 20ms;
+    }
+    header #nav-check:checked ~ .nav-toggler{
+        margin-bottom: 280px;
+    }
+    header #nav-check:checked ~ .nav-toggler span{
+    	background-color: transparent;
+    }
+    header  #nav-check:checked ~ .nav-toggler span::before{
+    	top:0;
+    	transform: rotate(45deg);
+    }
+    header #nav-check:checked ~ .nav-toggler span::after{
+    	top:0;
+    	transform: rotate(-45deg);
+    }
+}
+.price-box{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 50px;
+    gap: 20px;
+    background-color: #1b378a;
+}
+
+.free-card{
+    grid-column: 3 / 3;
+    grid-row: 1 / 4;
+    background-color: #645cba;
+}
+.Testemonials{
+    font-family: 'Edu SA Beginner', cursive;
+    background: $color1;
+    height: 250px;
+    margin-top: 20px;
+    /* padding-top: 55px; */
+    color: rgb(53, 53, 53);
+    position: relative;
+    overflow: hidden
+}
+.Testemonials blockquote{
+    width:80%;
+    margin: 30px auto;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.Testemonials blockquote:before{content:open-quote" "}
+
+.Testemonials blockquote:after{content:" "close-quote}
+               
+.Testemonials h4{
+    text-align: center;
+    margin: 30px;
+    font-size: 19px;
+}
+/* .Testemonials input{display: inline-block;} */
+.Testemonials input[ type="radio"]{display: none}
+
+.Testemonials label{
+    padding:0  7px;
+    cursor: pointer;
+    border:2px solid rgb(61, 159, 244);
+    margin:10px;
+    border-radius: 40%;
+    transition: all .5s;
+}
+.Testemonials aside{
+    width: 122px;
+    margin: 0 auto;
+    position:absolute;
+    bottom: 15%;
+    right: 50%;
+    transform: translatex(50%)
+}
+.Testemonials label:hover{
+    background-color: #1d8fe7;
+}
+.Testemonials input + div {
+    opacity: 1;
+    transition: all 1s ease-out;
+    width:100%;
+    position: absolute;
+    top: 350px; 
+}
+.Testemonials input[id="slide1"]:checked ~ aside label[for="slide1"],
+.Testemonials input[id="slide2"]:checked ~ aside label[for="slide2"],
+.Testemonials input[id="slide3"]:checked ~ aside label[for="slide3"]
+{background-color: #1d8fe7;;border:none} 
+.Testemonials input[id="slide1"]:checked + div,
+.Testemonials input[id="slide2"]:checked + div,
+.Testemonials input[id="slide3"]:checked + div
+{opacity: 1;top:40px}
+.subscription-titel{
+    font-family:'Space Grotesk', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    span{
+        color: #1d8fe7;
+    }
+}
+.container-cards{
+    display: grid;
+    grid-template-columns:repeat(3,1fr);
+    gap: 20px;
+    grid-auto-rows: minmax(100px, auto);
+    margin: 20px 7.0%;
+    .price-card{
+        background-color: $color3;
+        width: 380px;
+        border-radius: 8px;
+        h2{
+            background-color: $color3;
+            font-family:'Space Grotesk', sans-serif;
+            display: flex;
+            justify-content: center;
+            border-radius: 8px;
+        }
+        p{
+            font-family:'Space Grotesk', sans-serif;
+            background-color: $color3;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            font-size: 35px;
+            font-weight: 700;
+        }
+        .price-card-icon{
+            background-color: $color3;
+            font-size: 90px;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+            padding-bottom: 10px;
+            color: #080166;
+        }
+        button{
+            display: flex;
+            justify-content: center;
+            background-color: $color4;
+            width: 380px;
+            height: 50px;
+            border: none;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border: 2px solid #7095fb;
+            padding: 5px 6px;
+            a{
+                margin-top: 8px;
+                font-family: sans-serif;
+                font-size: 16px;
+                color: #000000;
+                background-color: $color4;
+                border-radius: 5px;
+                i{
+                    background-color: $color4;
+                    color: #080166;   
+                }
+            }
+        }
+    }
+}
+/*==================== (max-width: 600px) and (min-width: 415px) ===================*/
+@media only screen and(max-width: 1100px) and (min-width: 900px){
+    .nav__logo{
+        margin-top: 10px;
+    }
+    ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: -60px;
+        right: -148px;
+    }
+    .subscription-titel{
+        font-family:'Space Grotesk', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -20px;
+        margin-bottom: 20px;
+    }
+    .container-cards{
+        display: grid;
+        grid-template-columns:repeat(1,1fr);
+        gap: 20px;
+        grid-auto-rows: minmax(100px, auto);
+        margin: 20px 7.0%;
+        .price-card{
+            background-color: $color3;
+            width: 470px;
+            border-radius: 8px;
+            h2{
+                background-color: $color3;
+                font-family:'Space Grotesk', sans-serif;
+                display: flex;
+                justify-content: center;
+                border-radius: 8px;
+            }
+            p{
+                font-family:'Space Grotesk', sans-serif;
+                background-color: $color3;
+                padding-top: 10px;
+                padding-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                font-size: 35px;
+                font-weight: 700;
+            }
+            .price-card-icon{
+                background-color: $color3;
+                font-size: 90px;
+                display: flex;
+                justify-content: center;
+                padding-top: 20px;
+                padding-bottom: 10px;
+                color: #080166;
+            }
+            button{
+                display: flex;
+                justify-content: center;
+                background-color: $color4;
+                width: 470px;
+                height: 50px;
+                border: none;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                border: 2px solid rgb(61, 159, 244);
+                    padding: 5px 6px;
+                    border-radius: 5px;
+                a{
+                    margin-top: 8px;
+                    font-family: sans-serif;
+                    font-size: 16px;
+                    color: #000000;
+                    background-color: $color4;
+                    i{
+                        background-color: $color4;
+                        color: #080166;   
+                    }
+                }
+            }
+        }
+    }
+}
+/*==================== (max-width: 600px) and (min-width: 415px) ===================*/
+@media only screen and(max-width: 900px) and (min-width: 600px){
+    .nav__logo{
+        margin-top: 10px;
+    }
+    ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: -60px;
+        right: -148px;
+    }
+    .subscription-titel{
+        font-family:'Space Grotesk', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -20px;
+        margin-bottom: 20px;
+    }
+    .container-cards{
+        display: grid;
+        grid-template-columns:repeat(1,1fr);
+        gap: 20px;
+        grid-auto-rows: minmax(100px, auto);
+        margin: 20px 7.0%;
+        .price-card{
+            background-color: $color3;
+            width: 470px;
+            border-radius: 8px;
+            h2{
+                background-color: $color3;
+                font-family:'Space Grotesk', sans-serif;
+                display: flex;
+                justify-content: center;
+                border-radius: 8px;
+            }
+            p{
+                font-family:'Space Grotesk', sans-serif;
+                background-color: $color3;
+                padding-top: 10px;
+                padding-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                font-size: 35px;
+                font-weight: 700;
+            }
+            .price-card-icon{
+                background-color: $color3;
+                font-size: 90px;
+                display: flex;
+                justify-content: center;
+                padding-top: 20px;
+                padding-bottom: 10px;
+                color: #080166;
+            }
+            button{
+                display: flex;
+                justify-content: center;
+                background-color: $color4;
+                width: 470px;
+                height: 50px;
+                border: none;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                border: 2px solid rgb(61, 159, 244);
+                    padding: 5px 6px;
+                    border-radius: 5px;
+                a{
+                    margin-top: 8px;
+                    font-family: sans-serif;
+                    font-size: 16px;
+                    color: #000000;
+                    background-color: $color4;
+                    i{
+                        background-color: $color4;
+                        color: #080166;   
+                    }
+                }
+            }
+        }
+    }
+}
+/*==================== (max-width: 600px) and (min-width: 415px) ===================*/
+@media only screen and(max-width: 600px) and (min-width: 430px){
+    .subscription-titel{
+        font-family:'Space Grotesk', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 13px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+    .container-cards{
+        display: grid;
+        grid-template-columns:repeat(1,1fr);
+        gap: 20px;
+        grid-auto-rows: minmax(100px, auto);
+        margin: 20px 7.0%;
+        .price-card{
+            background-color: $color3;
+            width: 380px;
+            border-radius: 8px;
+            h2{
+                background-color: $color3;
+                font-family:'Space Grotesk', sans-serif;
+                display: flex;
+                justify-content: center;
+                border-radius: 8px;
+            }
+            p{
+                font-family:'Space Grotesk', sans-serif;
+                background-color: $color3;
+                padding-top: 10px;
+                padding-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                font-size: 35px;
+                font-weight: 700;
+            }
+            .price-card-icon{
+                background-color: $color3;
+                font-size: 90px;
+                display: flex;
+                justify-content: center;
+                padding-top: 20px;
+                padding-bottom: 10px;
+                color: #080166;
+            }
+            button{
+                display: flex;
+                justify-content: center;
+                background-color: $color4;
+                width: 380px;
+                height: 50px;
+                border: none;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                border: 2px solid rgb(61, 159, 244);
+                    padding: 5px 6px;
+                    border-radius: 5px;
+                a{
+                    margin-top: 8px;
+                    font-family: sans-serif;
+                    font-size: 16px;
+                    color: #000000;
+                    background-color: $color4;
+                    i{
+                        background-color: $color4;
+                        color: #080166;   
+                    }
+                }
+            }
+        }
+    }
+}
+/*==================== (max-width: 600px) and (min-width: 415px) ===================*/
+@media only screen and(max-width: 430px) and (min-width: 200px){
+    .subscription-titel{
+        font-family:'Space Grotesk', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 11px;
+        margin-top: 40px;
+        margin-bottom: 50px;
+    }
+    .container-cards{
+        display: grid;
+        grid-template-columns:repeat(1,1fr);
+        gap: 20px;
+        grid-auto-rows: minmax(100px, auto);
+        margin: 20px 1.0%;
+        .price-card{
+            background-color: $color3;
+            width: 96vw;
+            border-radius: 8px;
+            h2{
+                background-color: $color3;
+                font-family:'Space Grotesk', sans-serif;
+                display: flex;
+                justify-content: center;
+                border-radius: 8px;
+            }
+            p{
+                font-family:'Space Grotesk', sans-serif;
+                background-color: $color3;
+                padding-top: 10px;
+                padding-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                font-size: 35px;
+                font-weight: 700;
+            }
+            .price-card-icon{
+                background-color: $color3;
+                font-size: 90px;
+                display: flex;
+                justify-content: center;
+                padding-top: 20px;
+                padding-bottom: 10px;
+                color: #080166;
+            }
+            button{
+                display: flex;
+                justify-content: center;
+                background-color: $color4;
+                width: 96vw;
+                height: 50px;
+                border: none;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                border: 2px solid rgb(61, 159, 244);
+                    padding: 5px 6px;
+                    border-radius: 5px;
+                a{
+                    margin-top: 8px;
+                    font-family: sans-serif;
+                    font-size: 16px;
+                    color: #000000;
+                    background-color: $color4;
+                    i{
+                        background-color: $color4;
+                        color: #080166;   
+                    }
+                }
+            }
+        }
+    }
+}
